@@ -1,0 +1,9 @@
+POST http://localhost:3000/messages
+Content-Type: application/json
+
+{
+  "sender": "legal@company.com",
+  "subject": "Contract renewal",
+  "body": "Please review and sign by next week.",
+  "category": "legal"
+}
