@@ -1,25 +1,3 @@
-✅ **Yes, you absolutely should write a `README.md` now** — even at this early stage.
-
-Here’s **why** it’s worth doing *right now* (even if it's not “complete”):
-
----
-
-## 🧠 Why Write a README Now?
-
-| Reason                   | Why It Matters                                                                           |
-| ------------------------ | ---------------------------------------------------------------------------------------- |
-| ✅ First impression       | Anyone visiting your repo (recruiters, teammates, BRM) knows what it's about immediately |
-| ✅ Milestone marker       | It documents what works **right now** — great for tracking progress                      |
-| ✅ Shows professionalism  | Even a short README signals you're serious about your work                               |
-| ✅ Easier to update later | Start simple, improve as you add PostgreSQL, AI, etc.                                    |
-
----
-
-## ✍️ What to Include in This Stage
-
-Since your project just handles `POST /messages` and uses in-memory storage, your README can include:
-
-### ✅ Basic Sections
 
 ````md
 # InboxBridge Backend
