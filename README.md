@@ -1,5 +1,5 @@
 
-# 📬 InboxBridge Backend
+#  InboxBridge Backend
 
 A TypeScript + Node.js backend API that simulates BRM’s email assistant system — capable of accepting incoming user messages and preparing them for classification and storage.
 
@@ -7,7 +7,7 @@ This project is being actively developed to demonstrate my skills for backend so
 
 ---
 
-## 🚀 Features (Completed So Far)
+##  Features (Completed So Far)
 
 - ✅ Built with **TypeScript**, **Express.js**, and **Node.js**
 - ✅ Created a working `POST /messages` endpoint
@@ -19,7 +19,7 @@ This project is being actively developed to demonstrate my skills for backend so
 
 ---
 
-## 📦 Tech Stack
+##  Tech Stack
 
 - **Node.js** – runtime environment
 - **TypeScript** – type safety and bug catching
@@ -28,7 +28,7 @@ This project is being actively developed to demonstrate my skills for backend so
 
 ---
 
-## 🧪 API Overview
+##  API Overview
 
 ### `POST /messages`
 
