@@ -64,7 +64,7 @@ This project is being actively developed to demonstrate my skills for backend so
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/inboxbridge-backend.git
+git clone https://github.com/Addy07-byte/inboxbridge-backend.git
 cd inboxbridge-backend
 ```
 
