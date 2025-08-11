@@ -1,7 +1,11 @@
-import express from 'express';
+import express from "express";
+
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
 
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 
@@ -9,38 +13,44 @@ app.get('/', (req, res) => {
   res.send('InboxBridge API is working 🚀');
 });
 
-// Step 1: In-memory message store (temporary)
-const messages: any[] = [];
 
-// Step 2: POST /messages route
-app.post('/messages', (req, res) => {
-  const { sender, subject, body, category } = req.body;
+// POST /messages  (create)
+app.post("/messages", async (req, res) => {
+  try {
+    const { sender, subject, body, category } = req.body || {};
 
-  // Step 3: Validation
-  if (!sender || !subject || !body || !category) {
-    return res.status(400).json({ error: 'All fields are required' });
+    // validation 
+    if (!sender || !subject || !body || !category) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
+
+    const newMessage = await prisma.message.create({
+      data: { sender, subject, body, category },
+    });
+
+    res.status(201).json({
+      message: "Message received!",
+      data: newMessage,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to create message" });
   }
-
-  // Step 4: Create message object
-  const newMessage = {
-    id: messages.length + 1,
-    sender,
-    subject,
-    body,
-    category,
-    timestamp: new Date()
-  };
-
-  // Step 5: Store the message
-  messages.push(newMessage);
-
-  // Step 6: Respond to client
-  res.status(201).json({
-    message: 'Message received!',
-    data: newMessage
-  });
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+// (recommended) GET /messages  (list latest first)
+app.get("/messages", async (_req, res) => {
+  try {
+    const items = await prisma.message.findMany({
+      orderBy: { timestamp: "desc" },
+      take: 100,
+    });
+    res.json(items);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch messages" });
+  }
 });
+
+const port = process.env.port || 3000;
+app.listen(port, () => console.log(`API running at http://localhost:${port}`))
