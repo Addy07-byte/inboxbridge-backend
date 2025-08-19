@@ -5,7 +5,7 @@ A TypeScript + Node.js backend API that simulates BRM’s email assistant system
 
 This project is being actively developed to demonstrate my skills for backend software engineering roles, particularly in AI-driven B2B platforms.
 
----
+--
 
 ##  Features (Completed So Far)
 
